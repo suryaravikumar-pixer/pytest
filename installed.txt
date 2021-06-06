@@ -1,0 +1,37 @@
+pip install pytest
+
+#how to run test file
+
+pytest test_math_func.py
+py.test        #anoter method
+
+#python test details 
+# -v stands for verbose
+py.test -v 
+
+# if you want run only one test use command
+pytest test_math_func.py::test_add -v
+
+#run test contains add keyword in functiontests
+pytest -v -k "add"
+pytest -v -k "add or strings" #this run three tests
+pytest -v -k "add and  strings" #this run one  tests
+pytest -v -k "add and  strings" #this run one  tests
+
+#add  mark decorator before the test functiontests before this import pytest
+import pytest
+
+@pytest.mark.number
+@pytest.mark.strings
+
+pytest -v -m number
+pytest -v -m strings
+
+pytest -v -x 
+
+#import sys 
+#seperate the verions with comma(3, 3)
+# we can use skipif(sys.version < (3, 3), reson="you can put reason here")
+
+# to print string, add print function to in the testfunction
+#run py.test -v -s | py.test -v --capture=no
